@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="Easy.QQRob.Views.ListAutoAnswerMessage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d"  
+             xmlns:prism="http://prismlibrary.com/"
+              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <StackPanel HorizontalAlignment="Left"  Margin="10,10,0,0" VerticalAlignment="Top"  MaxWidth="{StaticResource ViewMaxWidth}" >
+
+        <ListBox ItemsSource="{Binding Logs}" SelectedValue="{Binding SelectedLog}" MinHeight="150">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding SelectedCommand}" CommandParameter="{Binding ElementName=DetailData}"  />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Height="20" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="{Binding Path=Id}" Margin="70 0" FontSize="18" ></Label>
+                        <Label Content="{Binding Path=CreateTime}" Margin="70 0" FontSize="18" Grid.Column="1"></Label>
+                    </Grid>
+                </DataTemplate>
+
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ScrollViewer MinHeight="120"  >
+            <TextBlock x:Name="DetailData"  TextWrapping="Wrap"></TextBlock>
+        </ScrollViewer>
+        <Grid Height="35">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Command="{Binding FirstPageCommand}" CommandParameter="{Binding ElementName=CurrentPage}" Content="首页"></Button>
+            <Button Grid.Column="1" Command="{Binding PrevPageCommand}" CommandParameter="{Binding ElementName=CurrentPage}" Content="上一页"></Button>
+            <Button Grid.Column="2" Command="{Binding NextPageCommand}" CommandParameter="{Binding ElementName=CurrentPage}" Content="下一页"></Button>
+            <Button Grid.Column="3" Command="{Binding LastPageCommand}"  CommandParameter="{Binding ElementName=CurrentPage}" Content="末页"></Button>
+            <StackPanel Grid.Column="4" Orientation="Horizontal">
+                <Label Content="当前页:"></Label>
+                <Label x:Name="CurrentPage" Content="{Binding CurrentPage}"></Label>
+                <Label Content="总页数:"></Label>
+                <Label x:Name="TotalPage" Content="{Binding TotalPage}"></Label>
+            </StackPanel>
+
+        </Grid>
+    </StackPanel>
+
+
+
+</UserControl>

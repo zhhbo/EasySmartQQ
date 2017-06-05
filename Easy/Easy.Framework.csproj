@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EFDBFC84-CFA2-4AB2-A94F-9A3CC58E091F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Easy</RootNamespace>
+    <AssemblyName>Easy</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>dm.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FirstFloor.ModernUI, Version=1.0.9.0, Culture=neutral, PublicKeyToken=bc9b0c37bf06c6a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\ModernUI.WPF.1.0.9\lib\net45\FirstFloor.ModernUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.6.3.0\lib\net45\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Unity.Wpf, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Unity.6.3.0\lib\net45\Prism.Unity.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Wpf, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.6.3.0\lib\net45\Prism.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.105.1, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.105.1\lib\net451\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.105.1, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.105.1\lib\net451\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.105.1, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.105.1\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.6.3.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Caching\AcquireContext.cs" />
+    <Compile Include="Caching\Cache.cs" />
+    <Compile Include="Caching\DefaultAsyncTokenProvider.cs" />
+    <Compile Include="Caching\DefaultCacheContextAccessor.cs" />
+    <Compile Include="Caching\DefaultCacheHolder.cs" />
+    <Compile Include="Caching\DefaultCacheManager.cs" />
+    <Compile Include="Caching\DefaultParallelCacheContext.cs" />
+    <Compile Include="Caching\IAsyncTokenProvider.cs" />
+    <Compile Include="Caching\ICache.cs" />
+    <Compile Include="Caching\ICacheContextAccessor.cs" />
+    <Compile Include="Caching\ICacheHolder.cs" />
+    <Compile Include="Caching\ICacheManager.cs" />
+    <Compile Include="Caching\IParallelCacheContext.cs" />
+    <Compile Include="Caching\IVolatileProvider.cs" />
+    <Compile Include="Caching\IVolatileToken.cs" />
+    <Compile Include="Caching\Signals.cs" />
+    <Compile Include="Caching\Weak.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Data\Interpreters\AbstractDataMigrationInterpreter.cs" />
+    <Compile Include="Data\Attributes\PrimaryKeyAttribute.cs" />
+    <Compile Include="Data\Attributes\PropertyFieldMapAttribute.cs" />
+    <Compile Include="Data\Attributes\TableMapAttribute.cs" />
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Data\Common\Enum\MessageContentType.cs" />
+    <Compile Include="Data\Common\Interface\IConnection.cs" />
+    <Compile Include="Data\Common\Interface\IDataPackage.cs" />
+    <Compile Include="Data\Common\Interface\IDataPackageWrapper.cs" />
+    <Compile Include="Data\Common\Interface\IFactory.cs" />
+    <Compile Include="Data\Common\Interface\IMessage.cs" />
+    <Compile Include="Data\Common\Interface\IObjectId.cs" />
+    <Compile Include="Data\Common\Interface\IUniqueIdentity.cs" />
+    <Compile Include="Data\Common\Partten Class\ObjectFactory.cs" />
+    <Compile Include="Data\Common\Partten Class\SingletonPattern.cs" />
+    <Compile Include="Data\Common\Structure Class\SafeQueue.cs" />
+    <Compile Include="Data\Common\Structure Class\SafeSetDictionary.cs" />
+    <Compile Include="Data\Common\Utility\AttributeHelper.cs" />
+    <Compile Include="Data\Common\Utility\QuickObjectClone.cs" />
+    <Compile Include="Data\Common\Utility\UniqueIdentityGenerator.cs" />
+    <Compile Include="Wpf\Constants\ThemesPath.cs" />
+    <Compile Include="Data\DataMigration.cs" />
+    <Compile Include="Data\DataMigrationManager.cs" />
+    <Compile Include="Data\Access\Connection\SqlceConnection.cs" />
+    <Compile Include="Data\Access\Connection\SQLiteConnection.cs" />
+    <Compile Include="Data\Access\Database\SQLceDatabase.cs" />
+    <Compile Include="Data\Access\Database\SQLiteDatabase.cs" />
+    <Compile Include="Data\Database\Core\CommonDatabase.cs" />
+    <Compile Include="Data\Database\Core\ConnectionManager.cs" />
+    <Compile Include="Data\Database\Core\DbConnectionBase.cs" />
+    <Compile Include="Data\Database\Core\DbConnectionFactory.cs" />
+    <Compile Include="Data\Database\Core\DbConnectionPool.cs" />
+    <Compile Include="Data\Database\Core\IDatabase.cs" />
+    <Compile Include="Data\Database\Enum\DatabaseType.cs" />
+    <Compile Include="Data\Factory\DataFactoryBase.cs" />
+    <Compile Include="Data\Factory\DataToObjectFactory.cs" />
+    <Compile Include="Data\Factory\DeleteExecuteFactory.cs" />
+    <Compile Include="Data\Factory\DeleteTransformFactory.cs" />
+    <Compile Include="Data\Factory\IDataFactory.cs" />
+    <Compile Include="Data\Factory\InsertExecuteFactory.cs" />
+    <Compile Include="Data\Factory\InsertTransformFactory.cs" />
+    <Compile Include="Data\Factory\SelectExecuteFactory.cs" />
+    <Compile Include="Data\Factory\SelectTransformFactory.cs" />
+    <Compile Include="Data\Factory\SqlExecuteFactoryBase.cs" />
+    <Compile Include="Data\Factory\SqlTransformFactory.cs" />
+    <Compile Include="Data\Factory\UpdateExecuteFactory.cs" />
+    <Compile Include="Data\Factory\UpdateTransformFactory.cs" />
+    <Compile Include="Data\Schema\AddColumnCommand.cs" />
+    <Compile Include="Data\Schema\AddIndexCommand.cs" />
+    <Compile Include="Data\Schema\AddUniqueConstraintCommand.cs" />
+    <Compile Include="Data\Schema\AlterColumnCommand.cs" />
+    <Compile Include="Data\Schema\AlterTableCommand.cs" />
+    <Compile Include="Data\Schema\ColumnCommand.cs" />
+    <Compile Include="Data\Schema\CreateColumnCommand.cs" />
+    <Compile Include="Data\Schema\CreateForeignKeyCommand.cs" />
+    <Compile Include="Data\Schema\CreateTableCommand.cs" />
+    <Compile Include="Data\Schema\DropColumnCommand.cs" />
+    <Compile Include="Data\Schema\DropForeignKeyCommand.cs" />
+    <Compile Include="Data\Schema\DropIndexCommand.cs" />
+    <Compile Include="Data\Schema\DropTableCommand.cs" />
+    <Compile Include="Data\Schema\DropUniqueConstraintCommand.cs" />
+    <Compile Include="Data\Schema\ISchemaBuilderCommand.cs" />
+    <Compile Include="Data\Schema\SchemaBuilder.cs" />
+    <Compile Include="Data\Schema\SchemaCommand.cs" />
+    <Compile Include="Data\Schema\SchemaUtils.cs" />
+    <Compile Include="Data\Schema\SqlStatementCommand.cs" />
+    <Compile Include="Data\Schema\TableCommand.cs" />
+    <Compile Include="Data\Interpreters\DefaultDataMigrationInterpreter.cs" />
+    <Compile Include="Data\ICommandInterpreter.cs" />
+    <Compile Include="Data\IDataMigration.cs" />
+    <Compile Include="Data\IDataMigrationInterpreter.cs" />
+    <Compile Include="Data\IDataMigrationManager.cs" />
+    <Compile Include="IDependency.cs" />
+    <Compile Include="INavigateProvider.cs" />
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Wpf\Models\SettingModel.cs" />
+    <Compile Include="Data\MapCollector.cs" />
+    <Compile Include="Data\Orderable.cs" />
+    <Compile Include="OrmManager.cs" />
+    <Compile Include="Data\OrmMapCache.cs" />
+    <Compile Include="Data\TableObjectMapInfo.cs" />
+    <Compile Include="Data\Interpreters\SqlCeCommandInterpreter.cs" />
+    <Compile Include="Data\Interpreters\SQLiteCommandInterpreter.cs" />
+    <Compile Include="Wpf\Providers\TitleNavigateProvider.cs" />
+    <Compile Include="Wpf\Providers\SettingNavigateProvider.cs" />
+    <Compile Include="QQRob\Constract.cs" />
+    <Compile Include="QQRob\Data\ConfigFile.cs" />
+    <Compile Include="QQRob\Data\SmartQQ\Disscuss.cs" />
+    <Compile Include="QQRob\Data\SmartQQ\DisscussInfo.cs" />
+    <Compile Include="QQRob\Data\ExchangeRate.cs" />
+    <Compile Include="QQRob\Data\SmartQQ\Friend.cs" />
+    <Compile Include="QQRob\Data\SmartQQ\FriendInfo.cs" />
+    <Compile Include="QQRob\Data\SmartQQ\Group.cs" />
+    <Compile Include="QQRob\Data\SmartQQ\GroupInfo.cs" />
+    <Compile Include="QQRob\Data\Orchard\Orchard.cs" />
+    <Compile Include="QQRob\Data\SmartQQ\Poll.cs" />
+    <Compile Include="QQRob\Data\Qun\JsonFriend.cs" />
+    <Compile Include="QQRob\Data\Qun\JsonQun.cs" />
+    <Compile Include="QQRob\Data\Qun\QQJoinedQun.cs" />
+    <Compile Include="QQRob\Data\SendResult.cs" />
+    <Compile Include="QQRob\Data\Result.cs" />
+    <Compile Include="QQRob\Data\Tuling\Tuling.cs" />
+    <Compile Include="QQRob\Data\Weather\Weather.cs" />
+    <Compile Include="QQRob\Data\Weather\WeatherIndex.cs" />
+    <Compile Include="QQRob\Data\Weather\YahooWeather.cs" />
+    <Compile Include="QQRob\Data\Wiki\Wiki.cs" />
+    <Compile Include="QQRob\Data\Wiki\WikiPage.cs" />
+    <Compile Include="QQRob\Data\Yahoo\YahooExchangeRate.cs" />
+    <Compile Include="QQRob\Data\Youdao\Youdao.cs" />
+    <Compile Include="QQRob\Enums\AllowType.cs" />
+    <Compile Include="QQRob\Enums\QQClientType.cs" />
+    <Compile Include="QQRob\Enums\PollType.cs" />
+    <Compile Include="QQRob\Enums\QQStatusType.cs" />
+    <Compile Include="QQRob\Events\ErrorEvent.cs" />
+    <Compile Include="QQRob\Events\EventArgsBase.cs" />
+    <Compile Include="QQRob\Events\InitComplatedEvent.cs" />
+    <Compile Include="QQRob\Events\KickedEvent.cs" />
+    <Compile Include="QQRob\Events\LoginStatusChangedEvent.cs" />
+    <Compile Include="QQRob\Events\MessageReciveEvent.cs" />
+    <Compile Include="QQRob\Events\MessageSendErrorEvent.cs" />
+    <Compile Include="QQRob\Events\MessageSendEvent.cs" />
+    <Compile Include="QQRob\Events\UnHandledMessageTypeEvent.cs" />
+    <Compile Include="QQRob\Extensions\LongExtension.cs" />
+    <Compile Include="QQRob\Extensions\SteamExtenstions.cs" />
+    <Compile Include="QQRob\Extensions\StringExtenstions.cs" />
+    <Compile Include="QQRob\Extensions\LogEx.cs" />
+    <Compile Include="QQRob\Migrations\AutoAnswerMessageLogMigration.cs" />
+    <Compile Include="QQRob\Migrations\BadWordsMigration.cs" />
+    <Compile Include="QQRob\Migrations\DisscussInfoMigration.cs" />
+    <Compile Include="QQRob\Migrations\FriendInfoMigration.cs" />
+    <Compile Include="QQRob\Migrations\GroupInfoMigration.cs" />
+    <Compile Include="QQRob\Migrations\MemberInfoMigration.cs" />
+    <Compile Include="QQRob\Migrations\MessageLogDataMigration.cs" />
+    <Compile Include="QQRob\Migrations\QQStateMigration.cs" />
+    <Compile Include="QQRob\Migrations\StudyWordsMigration.cs" />
+    <Compile Include="QQRob\Migrations\SystemLogDataMigration.cs" />
+    <Compile Include="QQRob\Models\AutoAnswerMessageLog.cs" />
+    <Compile Include="QQRob\Models\BadWords.cs" />
+    <Compile Include="QQRob\Models\DiscussInfo.cs" />
+    <Compile Include="QQRob\Models\Font.cs" />
+    <Compile Include="QQRob\Models\FriendInfo.cs" />
+    <Compile Include="QQRob\Models\GroupInfo.cs" />
+    <Compile Include="QQRob\Models\MemberInfo.cs" />
+    <Compile Include="QQRob\Models\MessageLogData.cs" />
+    <Compile Include="QQRob\Models\QQState.cs" />
+    <Compile Include="QQRob\Models\StudyWords.cs" />
+    <Compile Include="QQRob\Models\SystemLogData.cs" />
+    <Compile Include="QQRob\Porviders\Answers\AnswerID.cs" />
+    <Compile Include="QQRob\Porviders\Answers\AnswerMobile.cs" />
+    <Compile Include="QQRob\Porviders\MainNavigateProvider.cs" />
+    <Compile Include="QQRob\Porviders\ModuleNavigateProvider.cs" />
+    <Compile Include="QQRob\Porviders\SettingNavigateProvider.cs" />
+    <Compile Include="QQRob\Porviders\TitleNavigateProvider.cs" />
+    <Compile Include="QQRob\Porviders\Answers\AnswerCity.cs" />
+    <Compile Include="QQRob\Porviders\Answers\AnswerExchangeRate.cs" />
+    <Compile Include="QQRob\Porviders\Answers\AnswerManager.cs" />
+    <Compile Include="QQRob\Porviders\Answers\AnswerMenu.cs" />
+    <Compile Include="QQRob\Porviders\Answers\AnswerOrchard.cs" />
+    <Compile Include="QQRob\Porviders\Answers\AnswerStock.cs" />
+    <Compile Include="QQRob\Porviders\Answers\AnswerStudy.cs" />
+    <Compile Include="QQRob\Porviders\Answers\AnswerTalk.cs" />
+    <Compile Include="QQRob\Porviders\Answers\AnswerTranslate.cs" />
+    <Compile Include="QQRob\Porviders\Answers\AnswerTuling.cs" />
+    <Compile Include="QQRob\Porviders\Answers\AnswerWeather.cs" />
+    <Compile Include="QQRob\Porviders\Answers\AnswerWiki.cs" />
+    <Compile Include="QQRob\Porviders\Answers\AnswerWuli.cs" />
+    <Compile Include="QQRob\Services\ApiUrl.cs" />
+    <Compile Include="QQRob\Services\ClientManager.cs" />
+    <Compile Include="QQRob\Services\MessageEchoEventArgs.cs" />
+    <Compile Include="QQRob\Services\Enum.cs" />
+    <Compile Include="QQRob\Porviders\Answers\FilterFace.cs" />
+    <Compile Include="QQRob\Porviders\Answers\FilterFainalMessageBadWords.cs" />
+    <Compile Include="QQRob\Porviders\Answers\FilterOriginMessageBadWords.cs" />
+    <Compile Include="QQRob\Services\IAutoAnswer.cs" />
+    <Compile Include="QQRob\Services\IMessageable.cs" />
+    <Compile Include="QQRob\Services\QQClient.cs" />
+    <Compile Include="QQRob\Extensions\ReflectExtenstions.cs" />
+    <Compile Include="QQRob\Services\QQSession.cs" />
+    <Compile Include="QQRob\Services\SmartQQClient.cs" />
+    <Compile Include="QQRob\Services\Unitities.cs" />
+    <Compile Include="QQRob\ViewModels\DefaultMessageSettingViewModel.cs" />
+    <Compile Include="QQRob\ViewModels\DiscussionMessageSettingViewModel.cs" />
+    <Compile Include="QQRob\ViewModels\GroupMessageSettingViewModel.cs" />
+    <Compile Include="QQRob\ViewModels\ListAutoAnswerMessageViewModel.cs" />
+    <Compile Include="QQRob\ViewModels\ListFriendsViewModel.cs" />
+    <Compile Include="QQRob\ViewModels\ListDisscussionViewModel.cs" />
+    <Compile Include="QQRob\ViewModels\ListGroupViewModel.cs" />
+    <Compile Include="QQRob\ViewModels\ListQQStateViewModel.cs" />
+    <Compile Include="QQRob\ViewModels\ListReciveMessageViewModel.cs" />
+    <Compile Include="QQRob\ViewModels\ListSystemMessageLogViewModel.cs" />
+    <Compile Include="QQRob\ViewModels\LoginViewModel.cs" />
+    <Compile Include="QQRob\ViewModels\MainViewModel.cs" />
+    <Compile Include="QQRob\Views\DefaultMessageSetting.xaml.cs">
+      <DependentUpon>DefaultMessageSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QQRob\Views\DiscussionMessageSetting.xaml.cs">
+      <DependentUpon>DiscussionMessageSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QQRob\Views\GroupMessageSetting.xaml.cs">
+      <DependentUpon>GroupMessageSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QQRob\Views\ListAutoAnswerMessage.xaml.cs">
+      <DependentUpon>ListAutoAnswerMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QQRob\Views\ListFriends.xaml.cs">
+      <DependentUpon>ListFriends.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QQRob\Views\ListDisscussion.xaml.cs">
+      <DependentUpon>ListDisscussion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QQRob\Views\ListGroup.xaml.cs">
+      <DependentUpon>ListGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QQRob\Views\ListQQState.xaml.cs">
+      <DependentUpon>ListQQState.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QQRob\Views\ListReciveMessage.xaml.cs">
+      <DependentUpon>ListReciveMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QQRob\Views\ListSystemMessageLog.xaml.cs">
+      <DependentUpon>ListSystemMessageLog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QQRob\Views\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QQRob\Views\Main.xaml.cs">
+      <DependentUpon>Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Sql\LogicRelationship.cs" />
+    <Compile Include="Data\Sql\QueryCondition.cs" />
+    <Compile Include="Data\Sql\QueryExpression.cs" />
+    <Compile Include="Data\Sql\SqlQueryString.cs" />
+    <Compile Include="Data\Sql\SqlString.cs" />
+    <Compile Include="Wpf\Tables\OrmTablesInfo.cs" />
+    <Compile Include="ViewModelBase.cs" />
+    <Compile Include="Wpf\ViewModels\SettingsViewModel.cs" />
+    <Compile Include="Wpf\Views\IntroductionView.xaml.cs">
+      <DependentUpon>IntroductionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Wpf\Views\SettingsAppearance.xaml.cs">
+      <DependentUpon>SettingsAppearance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Wpf\Themes\BingImage.cs" />
+    <Compile Include="Wpf\ViewModels\SettingsAppearanceViewModel.cs" />
+    <Compile Include="Wpf\Views\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkContext.cs" />
+    <Page Include="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QQRob\Views\DefaultMessageSetting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QQRob\Views\DiscussionMessageSetting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QQRob\Views\GroupMessageSetting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QQRob\Views\ListAutoAnswerMessage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QQRob\Views\ListFriends.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QQRob\Views\ListDisscussion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QQRob\Views\ListGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QQRob\Views\ListQQState.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QQRob\Views\ListReciveMessage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QQRob\Views\ListSystemMessageLog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QQRob\Views\Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QQRob\Views\Main.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Wpf\Themes\LightBingImageTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Wpf\Themes\DarkTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Wpf\Themes\LightTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Wpf\Views\IntroductionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Wpf\Views\SettingsAppearance.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Wpf\Styles\CustomUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Wpf\Themes\DarkBingImageTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Wpf\Themes\DMTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Wpf\Themes\MacOSXTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Wpf\Themes\Windows10Theme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Wpf\Views\Settings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Wpf\Themes\background.macosx.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Wpf\Themes\background.windows10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Wpf\Themes\dm-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="dm.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.105.1\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.105.1\build\net451\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此项目引用这台计算机上缺少的 NuGet 程序包。使用 NuGet 程序包还原可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.105.1\build\net451\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.105.1\build\net451\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

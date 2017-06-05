@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="Easy.QQRob.Views.ListQQState"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"  
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             d:DesignHeight="200" Width="300" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" VerticalAlignment="Center" Opacity="0.95">
+    <StackPanel  Height="199" Width="280" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" ScrollViewer.HorizontalScrollBarVisibility="Auto" CanHorizontallyScroll="True" CanVerticallyScroll="True">
+        <ListBox VerticalAlignment="Top" ItemsSource="{Binding States}"   SelectedValue="{Binding SelectedState}" Height="46" Margin="0" HorizontalAlignment="Center" Width="262" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.25">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding SelectedCommand}"  />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding QQNum}" Margin="70 10" FontSize="18"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="刷新" Command="{Binding RefreshCommand}"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Grid.Column="0" Grid.Row="1" Padding="6,3,15,5"/>
+            <Button Content="试登录" Command="{Binding TryLoginSelectedCommand}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Top" Padding="0,3,16,5"/>
+
+        </StackPanel>
+        <Label x:Name="Message" Content="{Binding Message}" Grid.Column="1" HorizontalAlignment="Center" Margin="0,1,0,0" Grid.Row="2" VerticalAlignment="Center" Height="40" Width="190" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Opacity="0.92"/>
+
+    </StackPanel>
+</UserControl>

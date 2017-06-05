@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Easy.QQRob.Views.ListGroup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"  
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             d:DesignHeight="300" Width="300">
+    <Grid HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="290" >
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <ListBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" ItemsSource="{Binding Items}"   SelectedValue="{Binding SelectedItem}" Grid.Column="0" Grid.Row="0" Height="158">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding SelectedCommand}"  />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding Path=Name}" Margin="70 10" FontSize="18"></Label>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button Content="更新基础信息" Command="{Binding RefreshBasicCommand}"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Grid.Column="0" Grid.Row="1"/>
+            <Button Content="更新选定项" Command="{Binding RefreshSelectedCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Grid.Column="0" Grid.Row="1"/>
+            <Button Content="更新详细信息" Command="{Binding RefreshDetailCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Grid.Column="0" Grid.Row="1"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

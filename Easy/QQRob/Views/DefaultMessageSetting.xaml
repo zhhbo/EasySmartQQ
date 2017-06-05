@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="Easy.QQRob.Views.DefaultMessageSetting"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d"  
+              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             d:DesignHeight="300" Width="383">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid Style="{StaticResource ContentRoot}" Margin="16,28,0,16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="116*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="49*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="Submit" Content="保存" HorizontalAlignment="Left" Command="{Binding SavedCommand}"  Margin="57,0,0,0" Grid.Row="2" VerticalAlignment="Top" Width="133" Height="39"/>
+        <ListBox x:Name="GroupList" ItemsSource="{Binding Items}" SelectedValue="{Binding SelectedItem}" Height="52" Margin="10,0,0,0" VerticalAlignment="Top" Width="332" HorizontalAlignment="Center">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding SelectedCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding QQNum}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ScrollViewer HorizontalAlignment="Left" Height="105" Margin="0,6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="367">
+            <ListBox x:Name="SettingList" Height="100" Width="358" ItemsSource="{Binding Settings}" VerticalContentAlignment="Center">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox Content="{Binding Name}" IsChecked="{Binding Selected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                    </DataTemplate>
+
+                </ListBox.ItemTemplate>
+
+            </ListBox>
+        </ScrollViewer>
+
+    </Grid>
+
+</UserControl>
