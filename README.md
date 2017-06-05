@@ -1,0 +1,2 @@
+# EasySmartQQ
+smartqq in wpf
